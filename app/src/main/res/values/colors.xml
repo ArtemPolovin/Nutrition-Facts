@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="header_green">#1D69F8</color>
+    <color name="toolbar_background">#0DDF7D</color>
+    <color name="table_title_backgroun">#92CA43</color>
+    <color name="table_borders_color">#6A7C7C7C</color>
+    <color name="ingredient_field_input_color">#4CE6E6E6</color>
+    <color name="ingredient_field_input_borders_color">#B30E0E0E</color>
+    <color name="table_title_color">#FFFFFF</color>
+    <color name="primary_black_color">#000000</color>
+    <color name="gray_color">#A5A5A5</color>
+    <color name="submit_food_analysis_button_color">#8D2F4F4F</color>
+    <color name="error_color">#9C0C01</color>
+</resources>
