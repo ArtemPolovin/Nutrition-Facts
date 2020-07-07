@@ -7,4 +7,5 @@
     <string name="menu_recipe_analysis">Recipe analysis</string>
     <string name="input_text_info">Enter ingredient and quantity or ingredient and weight. For example (2 apples) or (300 grams of  apples) </string>
     <string name="error_text">We cannot calculate the nutrition for ingredient. Please check the ingredient spelling or if you have entered a quantity for the ingredient.</string>
+    <string name="welcome_text">Welcome to Nutrition Facts</string>
 </resources>
