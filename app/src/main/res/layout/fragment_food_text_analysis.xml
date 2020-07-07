@@ -15,7 +15,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".ui.foodTextAnalysis.FoodAnalysisFragment">
+    android:id="@+id/layout_food_text_analysis"
+    tools:context=".ui.foodTextAnalysis.FoodAnalysisFragment"
+    android:background="?android:windowBackground">
 
     <ProgressBar
         android:id="@+id/food_analysis_progressbar"
@@ -29,14 +31,10 @@
 
 
     <TextView
+        style="@style/Header"
         android:id="@+id/text_food_analysis_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/simonetta_black_italic"
         android:text="Food Analysis"
-        android:textColor="@color/primary_black_color"
-        android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

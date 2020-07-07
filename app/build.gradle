@@ -85,4 +85,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     implementation "com.google.dagger:dagger-producers:$daggerVersion"
 
+    //RecyclerView
+    def recyclerViewVersion = "1.1.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
 }
