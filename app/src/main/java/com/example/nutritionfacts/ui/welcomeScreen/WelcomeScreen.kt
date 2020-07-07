@@ -44,14 +44,7 @@ class WelcomeScreen : Fragment() {
 
 
         Handler().postDelayed({
-      (activity as AppCompatActivity).supportFragmentManager
-                .beginTransaction()
-                .setCustomAnimations(
-                    R.anim.enter_from_right,
-                    R.anim.exit_to_right
-                )
-                .replace(R.id.nav_host_fragment, FoodAnalysisFragment())
-                .commit()
+            findNavController().navigate(R.id.nav_food_text_analysis,null)
         },6000)
 
 
