@@ -9,10 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
 import com.example.nutritionfacts.databinding.FragmentFoodTextAnalysisBinding
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
+import com.example.nutritionfacts.ui.viewStates.WelcomeScreenViewState
+import com.example.nutritionfacts.ui.welcomeScreen.WelcomeScreen
 import kotlinx.android.synthetic.main.fragment_food_text_analysis.*
 import javax.inject.Inject
 
@@ -28,13 +31,14 @@ class FoodAnalysisFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         foodAnalysisBinding = DataBindingUtil.inflate(
-            layoutInflater, R.layout.fragment_food_text_analysis, container, false
-        )
-        return foodAnalysisBinding.root
+            layoutInflater, R.layout.fragment_food_text_analysis, container, false)
+
+        return  foodAnalysisBinding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         (activity as AppCompatActivity).supportActionBar?.show()
 
         (activity?.applicationContext as App).foodAnalysisAppComponent.injectFoodAnalysisFragment(
@@ -44,14 +48,17 @@ class FoodAnalysisFragment : Fragment() {
         foodAnalysisViewModel =
             ViewModelProvider(this, foodAnalysisFactory).get(FoodAnalysisViewModel::class.java)
 
+        checkIfWelcomeScreenIsAble()
+
         setupFoodAnalysis()
 
         btn_submit_food_analysis.setOnClickListener {
             foodAnalysisViewModel.getFoodAnalysis(edit_text_input_field.text.toString())
-            setupFoodAnalysis() }
+            setupFoodAnalysis()
+        }
     }
 
-   private fun setupFoodAnalysis() {
+    private fun setupFoodAnalysis() {
         foodAnalysisViewModel.foodAnalysisViewState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 FoodAnalysisViewState.Loading -> {
@@ -72,6 +79,16 @@ class FoodAnalysisFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun checkIfWelcomeScreenIsAble() {
+        val navController = findNavController()
+        when (WelcomeScreen.welcomeScreenViewState) {
+            WelcomeScreenViewState.Able -> {
+                navController.navigate(R.id.navigation)
+            }
+
+        }
     }
 
 }

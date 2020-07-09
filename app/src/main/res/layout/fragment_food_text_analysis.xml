@@ -68,7 +68,7 @@
         style="@style/TextView.Primary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/error_text"
+        android:text="@string/food_analysis_error_text"
         android:textColor="@color/error_color"
         android:textSize="16sp"
         android:visibility="gone"
@@ -101,7 +101,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingBottom="226dp">
-
 
             <LinearLayout
                 android:id="@+id/food_analysis_table"
@@ -145,7 +144,7 @@
                         style="@style/TextView.Primary"
                         android:layout_alignParentStart="true"
                         android:text="Calories"
-                        android:textSize="25sp"/>
+                        android:textSize="25sp" />
 
                     <View
                         android:id="@+id/calories_line"
@@ -161,7 +160,7 @@
                         android:layout_alignEnd="@+id/calories_line"
                         android:layout_marginEnd="8dp"
                         android:text="@{foodAnalysis.calories}"
-                        android:textSize="25sp"/>
+                        android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -854,7 +853,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:background="@color/table_title_backgroun"/>
+                    android:background="@color/table_title_backgroun" />
 
 
             </LinearLayout>
