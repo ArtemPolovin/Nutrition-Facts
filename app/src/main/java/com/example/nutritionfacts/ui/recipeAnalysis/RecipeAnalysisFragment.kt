@@ -56,12 +56,6 @@ class RecipeAnalysisFragment : Fragment() {
         recipeAnalysisViewModel =
             ViewModelProvider(this, recipeAnalysisFactory).get(RecipeAnalysisViewModel::class.java)
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().navigate(
-                R.id.action_nav_recipe_analysis_to_nav_food_text_analysis2,
-                null
-            )
-        }
 
         adapter = AdapterRecipeAnalysis(recipeLineList)
         context.let {

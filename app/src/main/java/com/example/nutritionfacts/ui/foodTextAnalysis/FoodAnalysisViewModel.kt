@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nutritionfacts.data.repository.foodAnalysisRepository.FoodAnalysisRepository
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
-import com.example.nutritionfacts.ui.viewStates.WelcomeScreenViewState
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
