@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_food_text_analysis,
-            R.id.nav_recipe_analysis,
+            R.id.action_nav_food_text_analysis_to_nav_recipe_analysis,
             R.id.welcome_fragment
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)

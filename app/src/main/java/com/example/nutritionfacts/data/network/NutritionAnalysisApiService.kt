@@ -1,13 +1,16 @@
 package com.example.nutritionfacts.data.network
 
 import com.example.nutritionfacts.data.repository.foodAnalysisResponse.FoodAnalysisApi
+import com.example.nutritionfacts.data.repository.pojo.RecipeAnalysisPojo
 import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory
 import io.reactivex.rxjava3.core.Single
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface NutritionAnalysisApiService {
@@ -15,6 +18,8 @@ interface NutritionAnalysisApiService {
     @GET("/api/nutrition-data")
     fun getFoodAnalysis(@Query("ingr") ingredient: String): Single<FoodAnalysisApi>
 
+  @POST("/api/nutrition-details")
+  fun getRecipeAnalysis(@Body recipeAnalysisPojo: RecipeAnalysisPojo): Single<FoodAnalysisApi>
 
     companion object {
 

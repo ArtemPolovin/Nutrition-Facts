@@ -4,23 +4,32 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
+import com.example.nutritionfacts.data.repository.pojo.RecipeAnalysisPojo
 import com.example.nutritionfacts.databinding.FragmentRecipeAnalysisBindingImpl
+import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
 import kotlinx.android.synthetic.main.fragment_recipe_analysis.*
+import javax.inject.Inject
 
 
-class RecipeAnalysisFragment : Fragment(){
+class RecipeAnalysisFragment : Fragment() {
 
     private val recipeLineList = mutableListOf<String>()
     private lateinit var adapter: AdapterRecipeAnalysis
 
     private lateinit var recipeAnalysisBinding: FragmentRecipeAnalysisBindingImpl
+
+    @Inject
+    lateinit var recipeAnalysisFactory: RecipeAnalysisFactory
+    private lateinit var recipeAnalysisViewModel: RecipeAnalysisViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +49,18 @@ class RecipeAnalysisFragment : Fragment(){
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
-            findNavController().navigate(R.id.action_nav_recipe_analysis_to_nav_food_text_analysis2,null)
+        (activity?.applicationContext as App).recipeAnalysisComponent.injectRecipeAnalysisFragment(
+            this
+        )
+
+        recipeAnalysisViewModel =
+            ViewModelProvider(this, recipeAnalysisFactory).get(RecipeAnalysisViewModel::class.java)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            findNavController().navigate(
+                R.id.action_nav_recipe_analysis_to_nav_food_text_analysis2,
+                null
+            )
         }
 
         adapter = AdapterRecipeAnalysis(recipeLineList)
@@ -55,11 +74,48 @@ class RecipeAnalysisFragment : Fragment(){
             }
         }
 
-        btn_submit_recipe_analysis.setOnClickListener {  }
+        setupRecipeAnalysis()
+
+        btn_submit_recipe_analysis.setOnClickListener {
+            recipeAnalysisViewModel.enteredRecipe(getRecipeAnalysisPojo())
+        }
 
         text_add_line.setOnClickListener {
             recipeLineList.add("")
-        adapter.notifyDataSetChanged()}
+            adapter.notifyDataSetChanged()
+        }
     }
+
+    private fun setupRecipeAnalysis() {
+        recipeAnalysisViewModel.recipeAnalysisViewState.observe(viewLifecycleOwner, Observer{
+            when (it) {
+                FoodAnalysisViewState.Loading ->{
+                    progressbar_recipe_analysis.visibility = View.VISIBLE
+                }
+                FoodAnalysisViewState.Error ->{
+                    progressbar_recipe_analysis.visibility = View.GONE
+                    recipe_analysis_table.visibility = View.GONE
+                    recipe_analysis_erro.visibility = View.VISIBLE
+                    recipe_input_text_info.visibility = View.GONE
+
+                }
+                is FoodAnalysisViewState.FoodAnalysisLoaded ->{
+                    progressbar_recipe_analysis.visibility = View.GONE
+                    recipe_input_text_info.visibility = View.GONE
+                    recipe_analysis_erro.visibility = View.GONE
+                    recipe_analysis_table.visibility = View.VISIBLE
+                    recipeAnalysisBinding.recipeAnalysis = it.foodAnalysis
+
+                }
+            }
+        })
+    }
+
+    private fun getRecipeAnalysisPojo(): RecipeAnalysisPojo {
+        recipeLineList.add(editText_recipe_first_line.text.toString())
+        adapter.notifyDataSetChanged()
+        return RecipeAnalysisPojo(recipeLineList)
+    }
+
 
 }
