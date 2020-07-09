@@ -9,13 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
 import com.example.nutritionfacts.databinding.FragmentFoodTextAnalysisBinding
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
-import com.example.nutritionfacts.ui.viewStates.WelcomeScreenViewState
-import com.example.nutritionfacts.ui.welcomeScreen.WelcomeScreen
 import kotlinx.android.synthetic.main.fragment_food_text_analysis.*
 import javax.inject.Inject
 
@@ -48,8 +45,6 @@ class FoodAnalysisFragment : Fragment() {
         foodAnalysisViewModel =
             ViewModelProvider(this, foodAnalysisFactory).get(FoodAnalysisViewModel::class.java)
 
-        checkIfWelcomeScreenIsAble()
-
         setupFoodAnalysis()
 
         btn_submit_food_analysis.setOnClickListener {
@@ -79,16 +74,6 @@ class FoodAnalysisFragment : Fragment() {
                 }
             }
         })
-    }
-
-    private fun checkIfWelcomeScreenIsAble() {
-        val navController = findNavController()
-        when (WelcomeScreen.welcomeScreenViewState) {
-            WelcomeScreenViewState.Able -> {
-                navController.navigate(R.id.navigation)
-            }
-
-        }
     }
 
 }
