@@ -31,19 +31,4 @@
             app:popEnterAnim="@anim/enter_from_right"
             app:popExitAnim="@anim/exit_to_right" />
     </fragment>
-    <navigation
-        android:id="@+id/navigation"
-        app:startDestination="@id/welcome_fragment" >
-        <fragment
-            android:id="@+id/welcome_fragment"
-            android:name="com.example.nutritionfacts.ui.welcomeScreen.WelcomeScreen"
-            android:label="welcome screen"
-            tools:layout="@layout/fragment_welcome_screen">
-            <action
-                android:id="@+id/action_welcome_fragment_to_nav_food_text_analysis2"
-                app:destination="@id/nav_food_text_analysis"
-                app:enterAnim="@anim/enter_from_right"
-                app:exitAnim="@anim/exit_to_right" />
-        </fragment>
-    </navigation>
 </navigation>
