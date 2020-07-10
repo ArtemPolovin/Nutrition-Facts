@@ -31,13 +31,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText_recipe_first_line"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/text_recipe_analysis_header" />
-
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_recipe_analysis"
                 android:layout_width="match_parent"
@@ -46,7 +39,7 @@
                 android:paddingBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_recipe_first_line" />
+                app:layout_constraintTop_toBottomOf="@+id/text_recipe_analysis_header" />
 
             <TextView
                 android:id="@+id/text_add_line"

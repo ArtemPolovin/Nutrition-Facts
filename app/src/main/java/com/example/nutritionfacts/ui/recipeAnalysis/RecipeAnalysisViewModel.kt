@@ -23,9 +23,6 @@ class RecipeAnalysisViewModel(
 
     private fun fetchRecipeAnalysis(recipeAnalysisPojo: RecipeAnalysisPojo) {
 
-        Log.i("AAAAAAAAAAAAAAAAA","first line = ${recipeAnalysisPojo.ingredients[0]}\n" +
-                "second line = ${recipeAnalysisPojo.ingredients[1]}")
-
         disposable?.dispose()
         _recipeAnalysisViewState.value = FoodAnalysisViewState.Loading
 
