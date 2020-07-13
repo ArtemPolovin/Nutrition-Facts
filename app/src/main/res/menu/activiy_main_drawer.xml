@@ -13,6 +13,11 @@
             android:title="@string/menu_recipe_analysis"
             />
 
+        <item android:id="@+id/nav_grocery_food_analysis"
+            android:icon="@drawable/ic_food_basket"
+            android:title="@string/menu_grocery_food_analysis"
+            />
+
 
 
     </group>

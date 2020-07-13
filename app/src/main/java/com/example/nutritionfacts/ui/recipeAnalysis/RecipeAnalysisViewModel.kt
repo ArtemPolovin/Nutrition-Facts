@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nutritionfacts.data.repository.foodAnalysisRepository.FoodAnalysisRepository
 import com.example.nutritionfacts.data.repository.pojo.RecipeAnalysisPojo
 import com.example.nutritionfacts.data.repository.recipeAnalysisRepository.RecipeAnalysisRepository
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
