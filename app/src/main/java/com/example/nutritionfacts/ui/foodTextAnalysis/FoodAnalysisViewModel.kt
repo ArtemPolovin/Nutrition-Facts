@@ -14,6 +14,9 @@ class FoodAnalysisViewModel(
     private val foodAnalysisRepository: FoodAnalysisRepository
 ) : ViewModel() {
 
+    private val id = "34cc042c"
+    private val key = "fd7b0a01c554ecad3cffd0a081e38235"
+
     private val _foodAnalysisViewState = MutableLiveData<FoodAnalysisViewState>()
     val foodAnalysisViewState: LiveData<FoodAnalysisViewState> get() = _foodAnalysisViewState
 
@@ -24,7 +27,7 @@ class FoodAnalysisViewModel(
         _foodAnalysisViewState.value = FoodAnalysisViewState.Loading
 
         disposable?.dispose()
-        disposable = foodAnalysisRepository.getFoodAnalysisData(ingredient)
+        disposable = foodAnalysisRepository.getFoodAnalysisData(id, key, ingredient)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

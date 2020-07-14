@@ -16,15 +16,23 @@ import retrofit2.http.Query
 interface NutritionAnalysisApiService {
 
     @GET("/api/nutrition-data")
-    fun getFoodAnalysis(@Query("ingr") ingredient: String): Single<FoodAnalysisApi>
+    fun getFoodAnalysis(
+        @Query("app_id") id: String,
+        @Query("app_key") key: String,
+        @Query("ingr"
+        ) ingredient: String): Single<FoodAnalysisApi>
 
   @POST("/api/nutrition-details")
-  fun getRecipeAnalysis(@Body recipeAnalysisPojo: RecipeAnalysisPojo): Single<FoodAnalysisApi>
+  fun getRecipeAnalysis(
+      @Query("app_id") id: String,
+      @Query("app_key") key: String,
+      @Body recipeAnalysisPojo: RecipeAnalysisPojo
+  ): Single<FoodAnalysisApi>
 
     companion object {
 
         operator fun invoke(): NutritionAnalysisApiService {
-            val key = "fd7b0a01c554ecad3cffd0a081e38235"
+          /*  val key = "fd7b0a01c554ecad3cffd0a081e38235"
             val id = "34cc042c"
             val requestInterceptor = Interceptor { chain ->
                 val url = chain.request()
@@ -42,10 +50,10 @@ interface NutritionAnalysisApiService {
 
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
-                .build()
+                .build()*/
 
             return Retrofit.Builder()
-                .client(okHttpClient)
+             //   .client(okHttpClient)
                 .baseUrl("https://api.edamam.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

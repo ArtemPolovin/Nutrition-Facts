@@ -5,5 +5,5 @@ import com.example.nutritionfacts.ui.models.FoodAnalysis
 import io.reactivex.rxjava3.core.Single
 
 interface RecipeAnalysisRepository {
-    fun getRecipeAnalysisData(recipeAnalysisPojo: RecipeAnalysisPojo): Single<FoodAnalysis>
+    fun getRecipeAnalysisData(id: String, key: String, recipeAnalysisPojo: RecipeAnalysisPojo): Single<FoodAnalysis>
 }
