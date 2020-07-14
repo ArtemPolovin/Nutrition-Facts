@@ -88,4 +88,8 @@ dependencies {
     //RecyclerView
     def recyclerViewVersion = "1.1.0"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+
+    //Picasso
+    def picassoVersion = "2.71828"
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
 }
