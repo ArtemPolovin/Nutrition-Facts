@@ -83,6 +83,7 @@
         android:layout_height="wrap_content"
         android:text="@string/input_text_info"
         android:textSize="16sp"
+        android:textColor="@color/input_info_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

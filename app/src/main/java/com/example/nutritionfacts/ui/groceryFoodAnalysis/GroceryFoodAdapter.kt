@@ -1,21 +1,24 @@
 package com.example.nutritionfacts.ui.groceryFoodAnalysis
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nutritionfacts.R
+import com.example.nutritionfacts.databinding.CellGroceryFoodBinding
 import com.example.nutritionfacts.ui.models.GroceryFood
 
-class GroceryFoodAdapter(private val groceryFoodList: MutableList<GroceryFood>) :
+class GroceryFoodAdapter(private val groceryFoodList: List<GroceryFood>) :
     RecyclerView.Adapter<GroceryFoodAdapter.GroceryFoodViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroceryFoodViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.cell_grocery_food, parent, false)
-        return GroceryFoodViewHolder(view)
+        val cellGroceryFood: CellGroceryFoodBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.cell_grocery_food,
+            parent,
+            false
+        )
+        return GroceryFoodViewHolder(cellGroceryFood)
     }
 
     override fun getItemCount(): Int {
@@ -23,16 +26,16 @@ class GroceryFoodAdapter(private val groceryFoodList: MutableList<GroceryFood>) 
     }
 
     override fun onBindViewHolder(holder: GroceryFoodViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(groceryFoodList[position])
     }
 
-    class GroceryFoodViewHolder(itemId: View) : RecyclerView.ViewHolder(itemId) {
-        private val groceryFoodImage: ImageView = itemId.findViewById(R.id.image_grocery_food)
-        private val groceryFoodNameText: TextView = itemId.findViewById(R.id.text_grocery_food_name)
-        private val groceryFoodCapacityText: TextView =
-            itemId.findViewById(R.id.grocery_food_capacity)
-        private val groceryFoodCaloriesText: TextView =
-            itemId.findViewById(R.id.grocery_food_calories)
+    class GroceryFoodViewHolder(cellGroceryFood: CellGroceryFoodBinding) :
+        RecyclerView.ViewHolder(cellGroceryFood.root) {
 
+        private val groceryFoodBinding = cellGroceryFood
+
+        fun bind(groceryFood: GroceryFood) {
+            groceryFoodBinding.groceryfood = groceryFood
+        }
     }
 }

@@ -8,17 +8,17 @@
     tools:context=".ui.groceryFoodAnalysis.GroceryFoodAnalysisFragment">
 
     <TextView
-        style="@style/Header"
         android:id="@+id/text_grocery_food_analysis_title"
+        style="@style/Header"
         android:layout_marginTop="5dp"
         android:text="Grocery Food Analysis"
-        android:textSize="40sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_text_grocery_food_Input"
+        android:id="@+id/edit_text_grocery_food_input"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
@@ -33,21 +33,43 @@
         android:id="@+id/btn_submit_grocery_food_analysis"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:text="submit"
-        android:background="@drawable/submit_food_analysis_button_backgroun"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/edit_text_grocery_food_Input"
-        app:layout_constraintEnd_toEndOf="@+id/edit_text_grocery_food_Input"
-        app:layout_constraintStart_toStartOf="@id/edit_text_grocery_food_Input"/>
+        android:background="@drawable/submit_food_analysis_button_backgroun"
+        android:text="submit"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_grocery_food_input"
+        app:layout_constraintStart_toStartOf="@id/edit_text_grocery_food_input"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_grocery_food_input" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_grocery_food"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_submit_grocery_food_analysis"
+        android:layout_marginTop="28dp"
+        android:paddingBottom="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit_grocery_food_analysis" />
+
+    <ProgressBar
+        android:id="@+id/grocery_food_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/grocery_food_error_text"
+        style="@style/TextView.Primary"
+        android:layout_marginTop="20dp"
+        android:text="@string/grocery_food_error_text"
+        android:textColor="@color/error_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_submit_grocery_food_analysis"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

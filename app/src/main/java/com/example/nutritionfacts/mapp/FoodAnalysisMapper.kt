@@ -1,6 +1,6 @@
 package com.example.nutritionfacts.mapp
 
-import com.example.nutritionfacts.data.repository.foodAnalysisResponse.FoodAnalysisApi
+import com.example.nutritionfacts.data.repository.response.foodAnalysisResponse.FoodAnalysisApi
 import com.example.nutritionfacts.ui.models.FoodAnalysis
 import java.text.DecimalFormat
 

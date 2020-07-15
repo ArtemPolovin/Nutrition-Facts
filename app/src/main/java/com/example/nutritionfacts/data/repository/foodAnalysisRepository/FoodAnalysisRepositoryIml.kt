@@ -13,8 +13,8 @@ class FoodAnalysisRepositoryIml @Inject constructor(
 ) : FoodAnalysisRepository {
 
 
-    override fun getFoodAnalysisData(ingredient: String): Single<FoodAnalysis> {
-        return nutritionAnalysisApiService.getFoodAnalysis(ingredient)
+    override fun getFoodAnalysisData(id: String, key: String, ingredient: String): Single<FoodAnalysis> {
+        return nutritionAnalysisApiService.getFoodAnalysis(id, key, ingredient)
             .map { foodAnalysisMapper.mapToFoodAnalysis(it) }
 
     }

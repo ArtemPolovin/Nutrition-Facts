@@ -15,6 +15,9 @@ class RecipeAnalysisViewModel(
     private val recipeAnalysisRepository: RecipeAnalysisRepository
 ): ViewModel() {
 
+    private val id = "34cc042c"
+    private val key = "fd7b0a01c554ecad3cffd0a081e38235"
+
     private val disposable: Disposable? = null
 
     private val _recipeAnalysisViewState = MutableLiveData<FoodAnalysisViewState>()
@@ -25,7 +28,7 @@ class RecipeAnalysisViewModel(
         disposable?.dispose()
         _recipeAnalysisViewState.value = FoodAnalysisViewState.Loading
 
-        recipeAnalysisRepository.getRecipeAnalysisData(recipeAnalysisPojo)
+        recipeAnalysisRepository.getRecipeAnalysisData(id, key, recipeAnalysisPojo)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

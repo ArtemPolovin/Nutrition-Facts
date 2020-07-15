@@ -5,5 +5,5 @@ import io.reactivex.rxjava3.core.Single
 
 interface FoodAnalysisRepository {
 
-    fun getFoodAnalysisData(ingredient: String): Single<FoodAnalysis>
+    fun getFoodAnalysisData(id: String, key: String, ingredient: String): Single<FoodAnalysis>
 }

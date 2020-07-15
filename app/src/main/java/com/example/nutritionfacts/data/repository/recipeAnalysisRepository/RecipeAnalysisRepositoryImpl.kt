@@ -11,8 +11,8 @@ class RecipeAnalysisRepositoryImpl(
     private val mapper: FoodAnalysisMapper
 ): RecipeAnalysisRepository {
 
-    override fun getRecipeAnalysisData(recipeAnalysisPojo: RecipeAnalysisPojo): Single<FoodAnalysis> {
-       return apiService.getRecipeAnalysis(recipeAnalysisPojo)
+    override fun getRecipeAnalysisData(id: String, key: String, recipeAnalysisPojo: RecipeAnalysisPojo): Single<FoodAnalysis> {
+       return apiService.getRecipeAnalysis(id, key, recipeAnalysisPojo)
             .map { mapper.mapToFoodAnalysis(it) }
     }
 }
