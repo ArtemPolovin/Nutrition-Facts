@@ -15,4 +15,5 @@
     <color name="submit_food_analysis_button_color">#8D2F4F4F</color>
     <color name="error_color">#9C0C01</color>
     <color name="add_line_blue_color">#001FEE</color>
+    <color name="input_info_text">#BFBAB7B7</color>
 </resources>
