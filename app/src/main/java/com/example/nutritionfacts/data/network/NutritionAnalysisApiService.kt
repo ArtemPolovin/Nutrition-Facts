@@ -42,7 +42,7 @@ interface NutritionAnalysisApiService {
     fun getGroceryFoodNutrients(
         @Query("app_id") id: String,
         @Query("app_key") key: String,
-        @Body ingredients: List<GroceryFoodPojo>
+        @Body ingredients: GroceryFoodPojo
     ): Single<FoodAnalysisApi>
 
     companion object {
