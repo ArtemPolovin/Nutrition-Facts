@@ -12,4 +12,5 @@
     <string name="input_text_recipe_info">Enter an ingredient list for what you are cooking. Enter each ingredient on a new line For example:\n1) 7 cloves garlic, minced \n2) 1 large peeled apples\n3) 1 tablespoon caraway seeds, crushed</string>
     <string name="menu_grocery_food_analysis">Grocery food analysis</string>
     <string name="grocery_food_error_text">Something went wrong! Make sure you spelled the product name and brand correctly and check your internet connection</string>
+    <string name="grocery_food_nutrients_error_text">You got some error. Please check internet connection and try again</string>
 </resources>
