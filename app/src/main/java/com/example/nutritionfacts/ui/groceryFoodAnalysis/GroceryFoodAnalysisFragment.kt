@@ -3,6 +3,7 @@ package com.example.nutritionfacts.ui.groceryFoodAnalysis
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -11,12 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
+import com.example.nutritionfacts.ui.groceryFoodNutrients.GroceryFoodNutrientsFragment
+import com.example.nutritionfacts.ui.models.GroceryFood
 import com.example.nutritionfacts.ui.viewStates.GroceryFoodViewState
 import kotlinx.android.synthetic.main.fragment_grocery_food_analysis.*
 import javax.inject.Inject
 
 
-class GroceryFoodAnalysisFragment : Fragment() {
+class GroceryFoodAnalysisFragment : Fragment(), GroceryFoodAdapter.OnClickListenerGroceryFoodItem {
 
     @Inject
     lateinit var groceryFoodFactory: GroceryFoodFactory
@@ -26,7 +29,7 @@ class GroceryFoodAnalysisFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_grocery_food_analysis, container, false)
+      return inflater.inflate(R.layout.fragment_grocery_food_analysis, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -68,10 +71,21 @@ class GroceryFoodAnalysisFragment : Fragment() {
                     grocery_food_progressbar.visibility = View.GONE
                     grocery_food_error_text.visibility = View.GONE
                     rv_grocery_food.visibility = View.VISIBLE
-                    rv_grocery_food.adapter = GroceryFoodAdapter(it.groceryFoodDataList)
+                    rv_grocery_food.adapter = GroceryFoodAdapter(it.groceryFoodDataList, this)
                 }
             }
         })
+    }
+
+    override fun onItemClick(groceryFoodItem: GroceryFood) {
+        val frag = GroceryFoodNutrientsFragment()
+        val bundle = Bundle()
+        bundle.putSerializable("key", groceryFoodItem)
+        frag.arguments = bundle
+
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(R.id.grocery_food_fragment_container, frag)?.commit()
+
     }
 
 }

@@ -4,13 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context=".ui.groceryFoodAnalysis.GroceryFoodAnalysisFragment">
 
     <TextView
         android:id="@+id/text_grocery_food_analysis_title"
         style="@style/Header"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="25dp"
         android:text="Grocery Food Analysis"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,6 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/ingredient_input_field_background"
         android:hint="enter ingredient and brand name"
         android:padding="8dp"
@@ -36,6 +37,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/submit_food_analysis_button_backgroun"
         android:text="submit"
+        android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="@+id/edit_text_grocery_food_input"
         app:layout_constraintStart_toStartOf="@id/edit_text_grocery_food_input"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_grocery_food_input" />
@@ -45,7 +47,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:paddingBottom="200dp"
+        android:paddingBottom="230dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_submit_grocery_food_analysis" />
@@ -64,12 +68,23 @@
         android:id="@+id/grocery_food_error_text"
         style="@style/TextView.Primary"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/grocery_food_error_text"
         android:textColor="@color/error_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_submit_grocery_food_analysis"
         android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/grocery_food_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
