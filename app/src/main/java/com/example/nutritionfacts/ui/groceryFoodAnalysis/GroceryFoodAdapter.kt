@@ -8,8 +8,10 @@ import com.example.nutritionfacts.R
 import com.example.nutritionfacts.databinding.CellGroceryFoodBinding
 import com.example.nutritionfacts.ui.models.GroceryFood
 
-class GroceryFoodAdapter(private val groceryFoodList: List<GroceryFood>) :
-    RecyclerView.Adapter<GroceryFoodAdapter.GroceryFoodViewHolder>() {
+class GroceryFoodAdapter(
+    private val groceryFoodList: List<GroceryFood>,
+    private val clickListener: OnClickListenerGroceryFoodItem
+) : RecyclerView.Adapter<GroceryFoodAdapter.GroceryFoodViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroceryFoodViewHolder {
         val cellGroceryFood: CellGroceryFoodBinding = DataBindingUtil.inflate(
@@ -27,6 +29,7 @@ class GroceryFoodAdapter(private val groceryFoodList: List<GroceryFood>) :
 
     override fun onBindViewHolder(holder: GroceryFoodViewHolder, position: Int) {
         holder.bind(groceryFoodList[position])
+        holder.clickItem(groceryFoodList[position], clickListener)
     }
 
     class GroceryFoodViewHolder(cellGroceryFood: CellGroceryFoodBinding) :
@@ -37,5 +40,13 @@ class GroceryFoodAdapter(private val groceryFoodList: List<GroceryFood>) :
         fun bind(groceryFood: GroceryFood) {
             groceryFoodBinding.groceryfood = groceryFood
         }
+
+        fun clickItem(groceryFoodItem: GroceryFood, action: OnClickListenerGroceryFoodItem) {
+            itemView.setOnClickListener { action.onItemClick(groceryFoodItem) }
+        }
+    }
+
+    interface OnClickListenerGroceryFoodItem {
+        fun onItemClick(groceryFoodItem: GroceryFood)
     }
 }
