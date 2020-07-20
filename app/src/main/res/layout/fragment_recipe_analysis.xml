@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
+        android:background="?android:windowBackground"
         tools:context=".ui.recipeAnalysis.RecipeAnalysisFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout

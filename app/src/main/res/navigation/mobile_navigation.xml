@@ -19,7 +19,11 @@
             app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_nav_food_text_analysis_to_foodDatabaseFragment"
-            app:destination="@id/nav_grocery_food_analysis" />
+            app:destination="@id/nav_grocery_food_analysis"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_right"
+            app:popEnterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_recipe_analysis"
@@ -35,7 +39,11 @@
             app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_nav_recipe_analysis_to_foodDatabaseFragment"
-            app:destination="@id/nav_grocery_food_analysis" />
+            app:destination="@id/nav_grocery_food_analysis"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_right"
+            app:popEnterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
     <fragment
         android:id="@+id/nav_grocery_food_analysis"
@@ -44,9 +52,17 @@
         tools:layout="@layout/fragment_grocery_food_analysis">
         <action
             android:id="@+id/action_foodDatabaseFragment_to_nav_recipe_analysis"
-            app:destination="@id/nav_recipe_analysis" />
+            app:destination="@id/nav_recipe_analysis"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_right"
+            app:popEnterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_foodDatabaseFragment_to_nav_food_text_analysis"
-            app:destination="@id/nav_food_text_analysis" />
+            app:destination="@id/nav_food_text_analysis"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_right"
+            app:popEnterAnim="@anim/enter_from_right"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
 </navigation>
