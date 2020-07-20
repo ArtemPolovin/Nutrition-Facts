@@ -45,8 +45,6 @@ class FoodAnalysisFragment : Fragment() {
         foodAnalysisViewModel =
             ViewModelProvider(this, foodAnalysisFactory).get(FoodAnalysisViewModel::class.java)
 
-        setupFoodAnalysis()
-
         btn_submit_food_analysis.setOnClickListener {
             foodAnalysisViewModel.getFoodAnalysis(edit_text_input_field.text.toString())
             setupFoodAnalysis()
