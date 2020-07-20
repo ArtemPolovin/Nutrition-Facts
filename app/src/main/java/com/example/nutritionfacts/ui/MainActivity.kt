@@ -14,6 +14,7 @@ import com.example.nutritionfacts.R
 import com.example.nutritionfacts.util.actionToFoodTextAnalysisFragment
 import com.example.nutritionfacts.util.actionToGroceryFodAnalysisFragment
 import com.example.nutritionfacts.util.actionToRecipeAnalysisFragment
+import com.example.nutritionfacts.util.actionToSettingsFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_food_text_analysis,
                 R.id.nav_recipe_analysis,
-                R.id.nav_grocery_food_analysis
+                R.id.nav_grocery_food_analysis,
+                R.id.nav_settings
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -66,6 +68,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_recipe_analysis -> {
                     navController.navigate(actionToRecipeAnalysisFragment(navController.currentDestination))
+                    drawerLayout.close()
+                }
+                R.id.nav_settings -> {
+                    navController.navigate(actionToSettingsFragment(navController.currentDestination))
                     drawerLayout.close()
                 }
             }

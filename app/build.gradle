@@ -36,7 +36,7 @@ android {
         enabled = true
     }
 
-    viewBinding{
+    viewBinding {
         enabled = true
     }
 
@@ -96,4 +96,8 @@ dependencies {
     //Picasso
     def picassoVersion = "2.71828"
     implementation "com.squareup.picasso:picasso:$picassoVersion"
+
+    //Preference
+    def preference_version = "1.1.1"
+    implementation "androidx.preference:preference-ktx:$preference_version"
 }
