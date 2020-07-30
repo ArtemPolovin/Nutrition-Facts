@@ -4,8 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.nutritionfacts.App
+import com.example.nutritionfacts.data.provider.LanguageProvider
+import com.example.nutritionfacts.data.provider.LanguageProviderImpl
 import com.example.nutritionfacts.data.repository.groceryFoodNutrientsRepository.GroceryFoodNutrientsRepository
 import com.example.nutritionfacts.data.repository.pojo.GroceryFoodPojo
+import com.example.nutritionfacts.data.repository.translateRepository.TranslateRepository
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
 import com.example.nutritionfacts.ui.viewStates.GroceryFoodNutrientsViewState
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

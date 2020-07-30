@@ -2,7 +2,7 @@ package com.example.nutritionfacts.ui.models
 
 class FoodAnalysis(
     val   calories: String,
-    val   totalFat: String,
+    val   totalFat: String?,
     val   saturatedFat: String,
     val   cholesterol: String,
     val   sodium: String,

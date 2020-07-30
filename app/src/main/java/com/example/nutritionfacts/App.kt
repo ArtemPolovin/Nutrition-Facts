@@ -1,6 +1,7 @@
 package com.example.nutritionfacts
 
 import android.app.Application
+import android.content.Context
 import com.example.nutritionfacts.data.repository.foodAnalysisRepository.DaggerFoodAnalysisComponent
 import com.example.nutritionfacts.data.repository.foodAnalysisRepository.FoodAnalysisComponent
 import com.example.nutritionfacts.data.repository.groceryFoodNutrientsRepository.DaggerGroceryFoodNutrientsComponent
@@ -16,6 +17,9 @@ class App : Application() {
     lateinit var recipeAnalysisComponent: RecipeAnalysisComponent
     lateinit var groceryFoodAnalysisComponent: GroceryFoodComponent
     lateinit var groceryFoodNutrientsComponent: GroceryFoodNutrientsComponent
+    companion object{
+      lateinit var context: Context
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -23,6 +27,7 @@ class App : Application() {
         recipeAnalysisComponent = DaggerRecipeAnalysisComponent.create()
         groceryFoodAnalysisComponent = DaggerGroceryFoodComponent.create()
         groceryFoodNutrientsComponent = DaggerGroceryFoodNutrientsComponent.create()
+        context = this
     }
 
 }
