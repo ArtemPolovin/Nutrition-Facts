@@ -69,7 +69,7 @@ class RecipeAnalysisFragment : Fragment() {
         setupRecipeAnalysis()
 
         btn_submit_recipe_analysis.setOnClickListener {
-            recipeAnalysisViewModel.enteredRecipe(RecipeAnalysisPojo(recipeLineList))
+            recipeAnalysisViewModel.enteredRecipe(recipeLineList)
         }
 
         text_add_line.setOnClickListener {

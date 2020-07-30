@@ -48,6 +48,8 @@ class GroceryFoodAnalysisFragment : Fragment(), GroceryFoodAdapter.OnClickListen
                 LinearLayoutManager(it, LinearLayoutManager.VERTICAL, false)
         }
 
+        setupGroceryFoodData()
+
         btn_submit_grocery_food_analysis.setOnClickListener {
             groceryFoodViewModel.enteredIngredient(edit_text_grocery_food_input.text.toString())
             setupGroceryFoodData()
