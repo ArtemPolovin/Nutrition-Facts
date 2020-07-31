@@ -1,6 +1,6 @@
 package com.example.nutritionfacts.ui.viewStates
 
-import com.example.nutritionfacts.ui.models.FoodAnalysis
+import com.example.domain.models.FoodAnalysis
 
 sealed class FoodAnalysisViewState {
 

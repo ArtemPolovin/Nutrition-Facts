@@ -1,22 +1,22 @@
 package com.example.nutritionfacts.ui.foodTextAnalysis
 
-import android.app.Application
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.nutritionfacts.data.repository.foodAnalysisRepository.FoodAnalysisRepository
-import com.example.nutritionfacts.data.repository.translateRepository.TranslateRepository
+import com.example.domain.repositories.FoodAnalysisRepository
+import com.example.domain.repositories.TranslateRepository
+import com.example.domain.usecases.foodTextAnalysis.FetchFoodAnalysisUseCase
+import com.example.domain.usecases.translateRequestText.TranslateTextUseCase
 import javax.inject.Inject
 
 @Suppress("UNCHECKED_CAST")
 class FoodAnalysisFactory @Inject constructor(
-    private val foodAnalysisRepository: FoodAnalysisRepository,
-    private val translateRepository: TranslateRepository
+    private val fetchFoodAnalysisUseCase: FetchFoodAnalysisUseCase,
+    private val translateUseCase: TranslateTextUseCase
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(FoodAnalysisViewModel::class.java)) {
-            return FoodAnalysisViewModel(foodAnalysisRepository,translateRepository) as T
+            return FoodAnalysisViewModel(fetchFoodAnalysisUseCase,translateUseCase) as T
         }
         throw IllegalArgumentException("ViewModel class is not found")
     }

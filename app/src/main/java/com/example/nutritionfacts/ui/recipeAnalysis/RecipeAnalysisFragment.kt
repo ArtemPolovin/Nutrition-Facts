@@ -11,8 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
-import com.example.nutritionfacts.data.repository.pojo.RecipeAnalysisPojo
-import com.example.nutritionfacts.databinding.FragmentRecipeAnalysisBindingImpl
+import com.example.nutritionfacts.databinding.FragmentRecipeAnalysisBinding
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
 import kotlinx.android.synthetic.main.fragment_recipe_analysis.*
 import javax.inject.Inject
@@ -23,7 +22,7 @@ class RecipeAnalysisFragment : Fragment() {
     private val recipeLineList = mutableListOf("")
     private lateinit var adapter: AdapterRecipeAnalysis
 
-    private lateinit var recipeAnalysisBinding: FragmentRecipeAnalysisBindingImpl
+    private lateinit var recipeAnalysisBinding: FragmentRecipeAnalysisBinding
 
     @Inject
     lateinit var recipeAnalysisFactory: RecipeAnalysisFactory
@@ -47,7 +46,7 @@ class RecipeAnalysisFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        (activity?.applicationContext as App).recipeAnalysisComponent.injectRecipeAnalysisFragment(
+        (activity?.applicationContext as App).appComponent.inject(
             this
         )
 

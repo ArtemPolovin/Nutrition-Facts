@@ -7,7 +7,7 @@
 
         <variable
             name="foodAnalysis"
-            type="com.example.nutritionfacts.ui.models.FoodAnalysis" />
+            type="com.example.domain.models.FoodAnalysis" />
 
     </data>
 
