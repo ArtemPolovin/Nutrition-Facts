@@ -1,9 +1,7 @@
 package com.example.nutritionfacts.ui.groceryFoodAnalysis
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -13,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
 import com.example.nutritionfacts.ui.groceryFoodNutrients.GroceryFoodNutrientsFragment
-import com.example.nutritionfacts.ui.models.GroceryFood
+import com.example.domain.models.GroceryFood
 import com.example.nutritionfacts.ui.viewStates.GroceryFoodViewState
 import kotlinx.android.synthetic.main.fragment_grocery_food_analysis.*
 import javax.inject.Inject
@@ -34,7 +32,7 @@ class GroceryFoodAnalysisFragment : Fragment(), GroceryFoodAdapter.OnClickListen
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        (activity?.applicationContext as App).groceryFoodAnalysisComponent.injectGroceryFoodFragment(
+        (activity?.applicationContext as App).appComponent.inject(
             this
         )
 

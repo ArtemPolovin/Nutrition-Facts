@@ -1,7 +1,6 @@
 package com.example.nutritionfacts.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -60,19 +59,19 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.nav_food_text_analysis -> {
                     navController.navigate(actionToFoodTextAnalysisFragment(navController.currentDestination))
-                    drawerLayout.close()
+                   drawerLayout.closeDrawers()
                 }
                 R.id.nav_grocery_food_analysis -> {
                     navController.navigate(actionToGroceryFodAnalysisFragment(navController.currentDestination))
-                    drawerLayout.close()
+                    drawerLayout.closeDrawers()
                 }
                 R.id.nav_recipe_analysis -> {
                     navController.navigate(actionToRecipeAnalysisFragment(navController.currentDestination))
-                    drawerLayout.close()
+                    drawerLayout.closeDrawers()
                 }
                 R.id.nav_settings -> {
                     navController.navigate(actionToSettingsFragment(navController.currentDestination))
-                    drawerLayout.close()
+                    drawerLayout.closeDrawers()
                 }
             }
             true

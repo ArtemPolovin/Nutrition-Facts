@@ -38,7 +38,7 @@ class FoodAnalysisFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.show()
 
-        (activity?.applicationContext as App).foodAnalysisAppComponent.injectFoodAnalysisFragment(
+        (activity?.applicationContext as App).appComponent.inject(
             this
         )
 
@@ -70,7 +70,7 @@ class FoodAnalysisFragment : Fragment() {
                     input_text_info.visibility = View.GONE
                     text_food_analysis_erro.visibility = View.GONE
                     food_analysis_table.visibility = View.VISIBLE
-                    foodAnalysisBinding.foodAnalysis = it.foodAnalysis
+                    foodAnalysisBinding.foodTextAnalysis = it.foodAnalysis
                 }
             }
         })

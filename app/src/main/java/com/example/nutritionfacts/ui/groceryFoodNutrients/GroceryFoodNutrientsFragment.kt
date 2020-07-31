@@ -11,10 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.nutritionfacts.App
 import com.example.nutritionfacts.R
-import com.example.nutritionfacts.data.repository.pojo.GroceryFoodPojo
-import com.example.nutritionfacts.data.repository.pojo.Ingredient
+import com.example.domain.repositories.pojo.GroceryFoodPojo
+import com.example.domain.repositories.pojo.Ingredient
 import com.example.nutritionfacts.databinding.FragmentGroceryFoodNutrientsBinding
-import com.example.nutritionfacts.ui.models.GroceryFood
+import com.example.domain.models.GroceryFood
 import com.example.nutritionfacts.ui.viewStates.GroceryFoodNutrientsViewState
 import kotlinx.android.synthetic.main.fragment_grocery_food_nutrients.*
 import javax.inject.Inject
@@ -23,8 +23,8 @@ class GroceryFoodNutrientsFragment : Fragment() {
 
     @Inject
     lateinit var groceryFoodNutrientsFactoryFactory: GroceryFoodNutrientsFactory
-    lateinit var groceryFoodNutrientsViewModel: GroceryFoodNutrientsViewModel
-    lateinit var groceryFoodNutrientsBinding: FragmentGroceryFoodNutrientsBinding
+   private lateinit var groceryFoodNutrientsViewModel: GroceryFoodNutrientsViewModel
+   private lateinit var groceryFoodNutrientsBinding: FragmentGroceryFoodNutrientsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +43,7 @@ class GroceryFoodNutrientsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        (activity?.applicationContext as App).groceryFoodNutrientsComponent.injectGroceryFoodNutrientsFragment(
+        (activity?.applicationContext as App).appComponent.inject(
             this
         )
 
@@ -80,7 +80,7 @@ class GroceryFoodNutrientsFragment : Fragment() {
                     grocery_food_nutrients_error_text.visibility = View.GONE
                     grocery_food_nutrients_progressbar.visibility = View.GONE
                     grocery_food_nutrients_table.visibility = View.VISIBLE
-                    groceryFoodNutrientsBinding.foodAnalysis = it.groceryFoodNutrients
+                    groceryFoodNutrientsBinding.groceryFoodAnalysis = it.groceryFoodNutrients
                 }
 
             }

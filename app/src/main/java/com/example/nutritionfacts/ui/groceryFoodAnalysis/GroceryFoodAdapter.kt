@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nutritionfacts.R
 import com.example.nutritionfacts.databinding.CellGroceryFoodBinding
-import com.example.nutritionfacts.ui.models.GroceryFood
+import com.example.domain.models.GroceryFood
 
 class GroceryFoodAdapter(
     private val groceryFoodList: List<GroceryFood>,

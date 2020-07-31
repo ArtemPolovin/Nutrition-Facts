@@ -8,8 +8,8 @@
     <data>
 
         <variable
-            name="foodAnalysis"
-            type="com.example.nutritionfacts.ui.models.GroceryFoodNutrients" />
+            name="groceryFoodAnalysis"
+            type="com.example.domain.models.GroceryFoodNutrients" />
 
     </data>
 
@@ -101,7 +101,7 @@
                         style="@style/TextView.Primary"
                         android:layout_alignEnd="@+id/calories_line"
                         android:layout_marginEnd="8dp"
-                        android:text="@{foodAnalysis.calories}"
+                        android:text="@{groceryFoodAnalysis.calories}"
                         android:textSize="25sp" />
 
                     <TextView
@@ -136,7 +136,7 @@
                         style="@style/TextView.Primary"
                         android:layout_alignEnd="@+id/weight_line"
                         android:layout_marginEnd="8dp"
-                        android:text="@{foodAnalysis.weight + ` g`}" />
+                        android:text="@{groceryFoodAnalysis.weight + ` g`}" />
 
                 </RelativeLayout>
 
@@ -162,13 +162,13 @@
                         style="@style/TextView.Primary"
                         android:layout_marginEnd="8dp"
                         android:layout_toStartOf="@+id/text_total_fat_percentage"
-                        android:text="@{foodAnalysis.totalFat + ` g`}" />
+                        android:text="@{groceryFoodAnalysis.totalFat + ` g`}" />
 
                     <TextView
                         android:id="@+id/text_total_fat_percentage"
                         style="@style/TextView.Primary"
                         android:layout_alignEnd="@+id/total_fat__line"
-                        android:text="@{`(` + foodAnalysis.fatPercentage + `%)`}"
+                        android:text="@{`(` + groceryFoodAnalysis.fatPercentage + `%)`}"
                         android:textStyle="italic" />
                 </RelativeLayout>
 
@@ -193,13 +193,13 @@
                         style="@style/TextView"
                         android:layout_marginEnd="8dp"
                         android:layout_toStartOf="@+id/text_saturated_fat_percentage"
-                        android:text="@{foodAnalysis.saturatedFat + ` g`}" />
+                        android:text="@{groceryFoodAnalysis.saturatedFat + ` g`}" />
 
                     <TextView
                         android:id="@+id/text_saturated_fat_percentage"
                         style="@style/TextView"
                         android:layout_alignEnd="@+id/saturated_fat__line"
-                        android:text="@{`(` + foodAnalysis.saturatedFatPercentage + `%)`}"
+                        android:text="@{`(` + groceryFoodAnalysis.saturatedFatPercentage + `%)`}"
                         android:textStyle="italic" />
                 </RelativeLayout>
 
@@ -224,13 +224,13 @@
                         style="@style/TextView.Primary"
                         android:layout_marginEnd="8dp"
                         android:layout_toStartOf="@+id/text_sodium_percentage"
-                        android:text="@{foodAnalysis.sodium + ` mg`}" />
+                        android:text="@{groceryFoodAnalysis.sodium + ` mg`}" />
 
                     <TextView
                         android:id="@+id/text_sodium_percentage"
                         style="@style/TextView.Primary"
                         android:layout_alignEnd="@+id/sodium_line"
-                        android:text="@{`(` + foodAnalysis.sodiumPercentage + `%)`}"
+                        android:text="@{`(` + groceryFoodAnalysis.sodiumPercentage + `%)`}"
                         android:textStyle="italic" />
                 </RelativeLayout>
 
@@ -255,13 +255,13 @@
                         style="@style/TextView.Primary"
                         android:layout_marginEnd="8dp"
                         android:layout_toStartOf="@+id/text_protein_percentage"
-                        android:text="@{foodAnalysis.protein + ` g`}" />
+                        android:text="@{groceryFoodAnalysis.protein + ` g`}" />
 
                     <TextView
                         android:id="@+id/text_protein_percentage"
                         style="@style/TextView.Primary"
                         android:layout_alignEnd="@+id/protein_line"
-                        android:text="@{`(` + foodAnalysis.proteinPercentage + `%)`}"
+                        android:text="@{`(` + groceryFoodAnalysis.proteinPercentage + `%)`}"
                         android:textStyle="italic" />
                 </RelativeLayout>
 

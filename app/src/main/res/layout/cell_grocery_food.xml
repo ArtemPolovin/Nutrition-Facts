@@ -7,7 +7,7 @@
 
         <variable
             name="groceryfood"
-            type="com.example.nutritionfacts.ui.models.GroceryFood" />
+            type="com.example.domain.models.GroceryFood" />
 
     </data>
 

@@ -4,12 +4,12 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.data.provider.LanguageProvider
 import com.example.nutritionfacts.App
-import com.example.nutritionfacts.data.provider.LanguageProvider
-import com.example.nutritionfacts.data.provider.LanguageProviderImpl
-import com.example.nutritionfacts.data.repository.pojo.RecipeAnalysisPojo
-import com.example.nutritionfacts.data.repository.recipeAnalysisRepository.RecipeAnalysisRepository
-import com.example.nutritionfacts.data.repository.translateRepository.TranslateRepository
+import com.example.data.provider.LanguageProviderImpl
+import com.example.domain.repositories.pojo.RecipeAnalysisPojo
+import com.example.domain.usecases.recipeAnalysis.FetchRecipeAnalysisUseCase
+import com.example.domain.usecases.translateRequestText.TranslateTextUseCase
 import com.example.nutritionfacts.ui.viewStates.FoodAnalysisViewState
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -17,8 +17,8 @@ import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class RecipeAnalysisViewModel(
-    private val recipeAnalysisRepository: RecipeAnalysisRepository,
-    private val translateRepository: TranslateRepository
+    private val fetchRecipeAnalysisUseCase: FetchRecipeAnalysisUseCase,
+    private val translateTextUseCase: TranslateTextUseCase
 ) : ViewModel() {
 
     private val id = "34cc042c"
@@ -47,12 +47,12 @@ class RecipeAnalysisViewModel(
             .subscribeOn(Schedulers.io())
             .map {
                 if (language.value == "ru-en")
-                    translateRepository.translate(it, language.value).blockingGet()
+                    translateTextUseCase.translateText(it, language.value).blockingGet()
                 else it
             }
             .buffer(recipeLineList.size)
             .flatMap {
-                recipeAnalysisRepository.getRecipeAnalysisData(
+                fetchRecipeAnalysisUseCase.fetchRecipeAnalysis(
                     id,
                     key,
                     RecipeAnalysisPojo(it)
