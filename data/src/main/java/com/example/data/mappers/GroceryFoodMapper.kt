@@ -6,7 +6,7 @@ import com.example.domain.models.GroceryFood
 class GroceryFoodMapper {
     fun mapToList(groceryFoodApi: GroceryFoodApi): List<GroceryFood> {
         val list = mutableListOf<GroceryFood>()
-        for ((index, element) in groceryFoodApi.hints.withIndex()) {
+        for ( element in groceryFoodApi.hints) {
             list.add(GroceryFood(
                 element.food.label,
                 element.food.brand,

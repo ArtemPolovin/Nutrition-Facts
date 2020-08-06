@@ -1,4 +1,4 @@
-package com.example.nutritionfacts.di
+package com.example.data.di
 
 import com.example.data.implementationRepo.TranslateRepositoryImpl
 import com.example.data.network.retrofit.TranslateApiService

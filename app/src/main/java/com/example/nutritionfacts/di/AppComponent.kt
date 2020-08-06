@@ -1,5 +1,6 @@
 package com.example.nutritionfacts.di
 
+import com.example.data.di.*
 import com.example.nutritionfacts.ui.foodTextAnalysis.FoodAnalysisFragment
 import com.example.nutritionfacts.ui.groceryFoodAnalysis.GroceryFoodAnalysisFragment
 import com.example.nutritionfacts.ui.groceryFoodNutrients.GroceryFoodNutrientsFragment

@@ -2,7 +2,6 @@ package com.example.nutritionfacts.ui.recipeAnalysis
 
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,25 +10,26 @@ import android.widget.ImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nutritionfacts.R
 
-class AdapterRecipeAnalysis(private val recipeLineList: MutableList<String>) :
+class AdapterRecipeAnalysis(private val mRecipeLineList: MutableList<String>) :
     RecyclerView.Adapter<AdapterRecipeAnalysis.RecipeViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.cell_recipe_line, parent, false)
-        return RecipeViewHolder(view, MyCustomEditTextListener(recipeLineList))
+        return RecipeViewHolder(view, MyCustomEditTextListener(mRecipeLineList))
     }
 
     override fun getItemCount(): Int {
-       return recipeLineList.count()
+        return mRecipeLineList.count()
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.myCustomEditTextListener.updatePosition(position)
-        holder.editTextRecipeLine.setText(recipeLineList[position])
+        holder.editTextRecipeLine.setText(mRecipeLineList[position])
+
         holder.imageCloseLine.setOnClickListener {
-            recipeLineList.removeAt(position)
-            notifyDataSetChanged()
+            removeLine(position)
         }
     }
 
@@ -38,6 +38,7 @@ class AdapterRecipeAnalysis(private val recipeLineList: MutableList<String>) :
         val editTextRecipeLine: EditText =
             itemView.findViewById(R.id.editText_input_recipe_line)
         val imageCloseLine: ImageButton = itemView.findViewById(R.id.image_close)
+
         init {
             editTextRecipeLine.addTextChangedListener(myCustomEditTextListener)
         }
@@ -63,4 +64,12 @@ class AdapterRecipeAnalysis(private val recipeLineList: MutableList<String>) :
         }
 
     }
+
+    private fun removeLine(position: Int) {
+        mRecipeLineList.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, mRecipeLineList.size)
+    }
+
 }
+
